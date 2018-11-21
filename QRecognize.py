@@ -8,12 +8,14 @@ flags.DEFINE_bool('rotate', False, 'if the QR direction is not standard.')
 def main(argv):
     if FLAGS.rotate:
         path = "image/QR_rotated.jpeg"
+        result = "results/result_rotated.npy"
         corners = [np.array([254, 124]), 
            np.array([106, 910]),
            np.array([1038, 288]),
            np.array([847, 993])]
     else:
-        path = "image/QR.jpeg"
+        path = "image/QR_standard.jpeg"
+        result = "results/result_standard.npy"
         corners = [np.array([168, 106]), 
            np.array([86, 847]),
            np.array([955, 254]),
@@ -26,6 +28,7 @@ def main(argv):
 
     _TYPE = RecReco(wrapped)
     rotated = RotateImage(wrapped, _TYPE)
+    np.save(result, rotated)
     ShowImage(rotated)
 
 
