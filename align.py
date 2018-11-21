@@ -138,6 +138,8 @@ def RotateImage(image, _TYPE, height=HEIGHT, width=WIDTH):
         return RotateImageAux(image, ANGLE_1)
     if _TYPE == TYPE_2:
         return RotateImageAux(image, ANGLE_2)
+    if _TYPE == TYPE_3:
+        return RotateImageAux(image, ANGLE_3)
     
     return None
 
